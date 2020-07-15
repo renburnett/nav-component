@@ -6,17 +6,21 @@ const fitSection = document.getElementById("fit_section");
 const careSection = document.getElementById("care_section");
 const materialsSection = document.getElementById("materials_section");
 
+const mobileFitSection = document.getElementById("mobile_fit_section");
+const mobileCareSection = document.getElementById("mobile_care_section");
+const mobileMaterialsSection = document.getElementById("mobile_materials_section");
+
 const mobileNavIcons = document.getElementsByClassName("mobile_nav_icon");
 
 const navElements = [fitNavElement, careNavElement, materialsNavElement];
-const sectionElements = [fitSection, careSection, materialsSection];
+const desktopSectionElements = [fitSection, careSection, materialsSection];
+const mobileSectionElements = [mobileFitSection, mobileCareSection, mobileMaterialsSection];
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  materialsNavElement.click();
-})
+let hasResizedUp = false;
+let hasResizedDown = false;
 
-navElements.forEach((element) => {
-  element.addEventListener('click', (event) => {
+navElements.forEach((el) => {
+  el.addEventListener('click', (event) => {
     navElements.forEach((navEle) => {
       if (navEle.id === event.target.parentElement.id) {
         // hide & show mobile subsections & toggle nav ele backgrounds
@@ -36,7 +40,7 @@ navElements.forEach((element) => {
 
           // hide & show desktop subsections
         } else { 
-          sectionElements.forEach((sectionEle) => {
+          desktopSectionElements.forEach((sectionEle) => {
             navElements.forEach((navElement) => {
               if (navElement.classList.contains("topnav_clicked")) {
                 navElement.classList.remove("topnav_clicked")
@@ -55,3 +59,29 @@ navElements.forEach((element) => {
     })
   })
 })
+
+// handle nav during window resize
+window.addEventListener('resize', () => {
+
+  navElements.forEach((navEle) => {
+    if (navEle.classList.contains("topnav_clicked")) {
+      navEle.classList.remove("topnav_clicked")
+      navEle.lastElementChild.innerText === "+" ? navEle.lastElementChild.textContent = "-" : navEle.lastElementChild.textContent = "+";
+    }
+  })
+
+  if (window.innerWidth >= 767 && !hasResizedUp) {
+    desktopSectionElements.forEach((sectionElement) => {
+      sectionElement.classList.add("display_none");
+      hasResizedUp = true;
+      hasResizedDown = false;
+    })
+  } else if (window.innerWidth < 767 && !hasResizedDown) {
+    mobileSectionElements.forEach((mobileElement) => {
+       mobileElement.classList.remove("mobile_sub_section");
+       mobileElement.classList.add("display_none");
+       hasResizedDown = true;
+       hasResizedUp = false;
+     })
+   }
+  })

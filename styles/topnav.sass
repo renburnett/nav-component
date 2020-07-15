@@ -8,30 +8,45 @@
   display: flex
   justify-content: center
 
-.topnav_elements 
-  padding: .7em 1em
-  width: 15%
+.topnav_elements
+  padding: .7em 2.5em
+  width: 100%
   border-top: 1px solid variables.$border-color
   border-bottom: 1px solid variables.$border-color
 
-.topnav_middle_element 
+.topnav_elements:hover
+  color: #FFFFFF
+
+.topnav_subnav
+  display: inherit
+  justify-content: inherit
+  width: inherit
+  text-decoration: none
+  color: black
+
+.topnav_middle_element
   border-left: 1px solid variables.$border-color
   border-right: 1px solid variables.$border-color
 
-.topnav_left_element 
-    border-left: 1px solid variables.$border-color
+.topnav_left_element
+  border-left: 1px solid variables.$border-color
 
 .topnav_right_element 
-    border-right: 1px solid variables.$border-color
+  border-right: 1px solid variables.$border-color
 
-.topnav a:hover 
-  background-color: #ddd
-  color: black
+.mobile_nav_icon
+  display: none
+
+.topnav_subnav:hover 
+  background-color: #020202
 
 .topnav_01_text 
-  color: #FFFFFF
   text-align: center
   text-transform: uppercase
   font-weight: 1000
   font-size: 1em
-  text-decoration: none
+
+.topnav_clicked
+  background-color: #020202 !important
+  color: #ffffff !important
+  

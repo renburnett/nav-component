@@ -1,3 +1,68 @@
+@use 'partials/variables'
+
+@media only screen and (max-width: 310px)
+  .topnav_elements
+    padding: 0.7em 2em 
+  
 @media only screen and (max-width: 767px) 
-  .section_pg_01 
-    background-color: pink !important
+  .empty_spacer
+    display: none !important
+
+  .topnav 
+    overflow: hidden
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100%
+
+  .topnav_subnav
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: space-between
+    width: 100% 
+
+  .topnav_subnav:hover
+    color: white
+
+  .topnav_elements 
+    padding: .7em 3em
+    width: 100% 
+    display: flex
+
+  .topnav_middle_element 
+    border-right: none 
+    border-left: none 
+
+  #fit_icon
+    border: none 
+
+  #materials_icon
+    border: none 
+
+  .topnav_left_element 
+    border: none 
+
+  .topnav_right_element
+    border: none 
+
+  .mobile_nav_icon
+    display: flex 
+    flex-direction: row
+    justify-content: flex-end
+
+  .mobile_sub_section
+    display: flex
+    background: transparent
+    height: 24.5em
+    padding: 0em 2em
+
+  .mobile_paragraph
+    text-align: center
+    font-size: 0.85em
+
+  .desktop_sub_section
+    display: none

@@ -25,7 +25,6 @@ navElements.forEach((element) => {
 
           if (navEle.nextElementSibling.classList.contains("flex_column")) {
             navEle.nextElementSibling.classList.remove("flex_column");
-            navEle.nextElementSibling.style.display = "none"; //CONTINUE
             navEle.nextElementSibling.classList.add("display_none");
           } else {
             navEle.nextElementSibling.classList.add("flex_column");

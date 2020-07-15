@@ -23,11 +23,11 @@ navElements.forEach((element) => {
         if (window.innerWidth <= 767) {
           navEle.classList.toggle('topnav_clicked');
 
-          if (navEle.nextElementSibling.classList.contains("flex_column")) {
-            navEle.nextElementSibling.classList.remove("flex_column");
+          if (!navEle.nextElementSibling.classList.contains("display_none")) {
+            navEle.nextElementSibling.classList.remove("mobile_sub_section");
             navEle.nextElementSibling.classList.add("display_none");
           } else {
-            navEle.nextElementSibling.classList.add("flex_column");
+            navEle.nextElementSibling.classList.add("mobile_sub_section");
             navEle.nextElementSibling.classList.remove("display_none");
           }
 
